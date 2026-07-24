@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#0a0a0a"/>
+  <!-- 眉毛 ´ ` -->
+  <path d="M 16 23 L 23 19" stroke="#f0f0f0" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+  <path d="M 48 23 L 41 19" stroke="#f0f0f0" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+  <!-- 眼睛 ･ ･ -->
+  <circle cx="22" cy="29" r="2.8" fill="#f0f0f0"/>
+  <circle cx="42" cy="29" r="2.8" fill="#f0f0f0"/>
+  <!-- 嘴巴 ᴗ -->
+  <path d="M 23 41 Q 32 49 41 41" stroke="#f0f0f0" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+</svg>
