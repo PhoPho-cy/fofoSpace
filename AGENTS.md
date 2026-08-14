@@ -42,3 +42,9 @@ pnpm gen:content    # 从默认内容重新生成 public/content.json
 - 编辑器：`http://localhost:3000/admin`（首页左下角「内容编辑」）
 - 3D 舞台：首页左下角「3D 舞台」（Esc 关闭）
 - 深链：`/?act=cover|about|work|docs`
+
+## 分工约定
+
+- **本 Agent 负责本地管理**：代码/文档修改、每次回答前运行检查清单、保持工作区干净、按模块做逻辑提交、同步 `Notes/`。
+- **推送（`git push`）由用户执行**；除非用户明确要求，否则不主动 push。
+- 完成本地提交后，可汇总 `git log --oneline` 供用户参考。

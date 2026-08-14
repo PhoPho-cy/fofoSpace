@@ -57,6 +57,7 @@ pnpm gen:content    # 从默认内容重新生成 public/content.json
 - `public/content.json` 已提交且被运行时加载：用编辑器或 `pnpm gen:content` 修改，不要手改结构
 - 编辑器 API 仅开发服务器可用；纯静态部署用「导出 JSON」
 - 视觉参考：`Vision/1.png`、`Vision/2.png`、`Vision/AI-Coding-Prompt.md`
+- 分工：本地管理（提交/检查/文档同步）由 Agent 负责；推送（`git push`）由用户执行
 
 ## 变更记录
 
@@ -66,3 +67,4 @@ pnpm gen:content    # 从默认内容重新生成 public/content.json
 - 2026-08-15：新增根目录 `AGENTS.md`（agent 自动读取的约束 + 检查清单 + 文档索引）；完成首次 git 提交（b0b736d）。
 - 2026-08-15：整体文件架构优化 —— 新增 `src/shared/`（types/hooks/cn）；内容层自包含（`src/content/acts.ts`、`src/content/data.ts`）；`content` 不再反向依赖 `journey`；删除根目录 `data.ts` / `utils.ts` / `journey/hooks.ts`；34 个文件全部可达、无死代码。
 - 2026-08-15：git 仓库管理 —— 新增 `.gitignore`（node_modules / dist / .env / .workbuddy）；解除 node_modules（5894）与 .workbuddy 的跟踪；删除陈旧 package-lock.json、vite.config.js；纳入 FOR_GEMINI.md；提交按模块拆分（feat / refactor / docs / chore），当前工作区干净、60 个跟踪文件。推送 origin 需网络（本机暂被阻断）。
+- 2026-08-15：确立分工约定 —— 本地管理（提交/检查/Notes 同步）由 Agent 负责，推送由用户执行（写入 AGENTS.md 与本文档）。
