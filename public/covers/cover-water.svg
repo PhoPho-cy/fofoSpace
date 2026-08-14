@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#04121a"/>
+      <stop offset="100%" stop-color="#02070c"/>
+    </linearGradient>
+    <linearGradient id="wave" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0e6f7d" stop-opacity="0.2"/>
+      <stop offset="50%" stop-color="#37e0c8" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0e6f7d" stop-opacity="0.2"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <g stroke="#0d2430" stroke-width="1">
+    <path d="M0 150 H1600 M0 300 H1600 M0 450 H1600 M0 600 H1600 M0 750 H1600"/>
+    <path d="M200 0 V900 M400 0 V900 M600 0 V900 M800 0 V900 M1000 0 V900 M1200 0 V900 M1400 0 V900"/>
+  </g>
+  <path d="M0 540 Q 200 480 400 540 T 800 540 T 1200 540 T 1600 540 V900 H0 Z" fill="url(#wave)" opacity="0.55"/>
+  <path d="M0 620 Q 240 560 480 620 T 960 620 T 1440 620 T 1600 640 V900 H0 Z" fill="#0a3a42" opacity="0.8"/>
+  <path d="M0 700 Q 260 650 520 700 T 1040 700 T 1600 700 V900 H0 Z" fill="#052a31" opacity="0.9"/>
+  <path d="M0 780 Q 300 730 600 780 T 1200 780 T 1600 780 V900 H0 Z" fill="#031a20"/>
+  <g stroke="#37e0c8" stroke-width="2" fill="none" opacity="0.85">
+    <path d="M0 560 Q 200 500 400 560 T 800 560 T 1200 560 T 1600 560"/>
+    <path d="M0 600 Q 220 545 440 600 T 880 600 T 1320 600 T 1600 600"/>
+  </g>
+  <circle cx="1280" cy="200" r="90" fill="#37e0c8" opacity="0.08"/>
+  <circle cx="1280" cy="200" r="60" fill="#37e0c8" opacity="0.12"/>
+  <text x="80" y="830" fill="#e8f6ff" font-family="monospace" font-size="30" letter-spacing="10" opacity="0.85">STYLIZED WATER</text>
+  <text x="82" y="868" fill="#37e0c8" font-family="monospace" font-size="18" letter-spacing="6" opacity="0.7">SHADER // GERSTNER // SSR</text>
+</svg>
