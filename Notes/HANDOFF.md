@@ -63,3 +63,4 @@ pnpm gen:content    # 从默认内容重新生成 public/content.json
 - 2026-08-14：按 `Vision/AI-Coding-Prompt.md` 重构为四幕旅程；新增 `src/journey/`、`Notes/HANDOFF.md`、内容编辑系统 `/admin`（`src/content/`、`src/pages/Admin.tsx`、vite 内容 API）、Three.js 框架 `src/three/`；清理旧组件与 `src/game/`，精简依赖；全站性能优化（分包/懒加载/后台暂停）。
 - 2026-08-14（同日跟进）：`public/content.json` 改为提交常驻（避免 404）；「恢复默认」写回默认值；新增 `scripts/gen-content.mjs` + `pnpm gen:content`。
 - 2026-08-15：文档架构优化 —— 拆分 `Notes/` 为 README（入口+约束）/ ARCHITECTURE / CONTENT / THREE / HANDOFF；根 README 精简为概览+链接；新增「每次回答前检查一次」约束；清理 3 处未使用变量；全路由无报错验证通过。
+- 2026-08-15：新增根目录 `AGENTS.md`（agent 自动读取的约束 + 检查清单 + 文档索引）；完成首次 git 提交（b0b736d）。
