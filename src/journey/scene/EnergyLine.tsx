@@ -1,7 +1,7 @@
 ﻿import { useEffect, useRef } from 'react';
 import { useMotionValueEvent, type MotionValue } from 'motion/react';
 import { COLORS, ENERGY_PATH, TRACK_WIDTH, clamp, pointAt } from '../config';
-import { usePrefersReducedMotion } from '../hooks';
+import { usePrefersReducedMotion } from '../../shared/hooks';
 
 interface EnergyLineProps {
   /** 0..1：能量线点亮进度（MotionValue，避免每帧重渲染） */

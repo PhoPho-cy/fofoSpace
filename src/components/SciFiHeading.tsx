@@ -1,6 +1,6 @@
 import { motion, useAnimationControls } from 'motion/react';
 import { useEffect, useRef, useState, ReactNode } from 'react';
-import { cn } from '../utils';
+import { cn } from '../shared/cn';
 
 interface Props {
   children: ReactNode;

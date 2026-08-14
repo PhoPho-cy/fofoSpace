@@ -4,28 +4,13 @@
 // 世界坐标单位：横轴为 vw、纵轴为 vh（1 单位 = 1vw / 1vh）。
 // ============================================================
 
-export type ActId = 'cover' | 'about' | 'work' | 'docs';
-
-export interface ActMeta {
-  id: ActId;
-  chapter: string;   // 第一章
-  numeral: string;   // 壹
-  title: string;     // 归墟
-  sub: string;       // 封面 · 进入记忆
-}
-
-export const ACTS: ActMeta[] = [
-  { id: 'cover', chapter: '第一章', numeral: '壹', title: '归墟',   sub: '封面 · 进入记忆' },
-  { id: 'about', chapter: '第二章', numeral: '贰', title: '水镜',   sub: '个人简介' },
-  { id: 'work',  chapter: '第三章', numeral: '叁', title: '心核',   sub: '作品展示' },
-  { id: 'docs',  chapter: '第四章', numeral: '肆', title: '脉髓',   sub: '技术文档' },
-];
+import type { ActId } from '../shared/types';
+import { ACTS, actMeta, type ActMeta } from '../content/acts';
+export { ACTS, actMeta };
+export type { ActMeta };
+export type { ActId } from '../shared/types';
 
 export const ACT_IDS = ACTS.map((a) => a.id) as ActId[];
-
-export function actMeta(id: ActId): ActMeta {
-  return ACTS.find((a) => a.id === id)!;
-}
 
 // ---- 轨道 / 相机 ----
 export const TRACK_ACTS = 4;

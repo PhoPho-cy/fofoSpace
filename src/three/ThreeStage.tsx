@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { X } from 'lucide-react';
 import Experience from './Experience';
-import { useMediaQuery, usePrefersReducedMotion } from '../journey/hooks';
+import { useMediaQuery, usePrefersReducedMotion } from '../shared/hooks';
 import { QUALITY_ORDER, type Quality } from './config';
 
 interface ThreeStageProps {

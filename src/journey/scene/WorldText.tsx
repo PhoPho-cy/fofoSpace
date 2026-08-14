@@ -1,6 +1,6 @@
 import { useTransform, motion, type MotionValue } from 'motion/react';
 import { actProgress, type ActId } from '../config';
-import type { Profile, Project } from '../../data';
+import type { Profile, Project } from '../../content/data';
 import type { ActCopy } from '../../content/types';
 import { DOC_NODES } from './DocNodes';
 

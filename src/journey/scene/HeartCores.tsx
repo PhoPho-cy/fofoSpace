@@ -1,5 +1,5 @@
 ﻿import { COLORS, GROUND_Y } from '../config';
-import type { Project } from '../../data';
+import type { Project } from '../../content/data';
 
 /** 单颗心核（可独立用于移动端） */
 export function HeartCoreArt({

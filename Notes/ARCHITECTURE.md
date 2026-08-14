@@ -16,12 +16,17 @@
 
 ```
 src/
-├── main.tsx / App.tsx / index.css / utils.ts
-├── content/          # 内容层：types / defaults / store（ContentProvider + useContent）
-├── data.ts           # ★ 默认内容（编辑器默认源）
+├── main.tsx / App.tsx / index.css
+├── shared/           # 跨模块共享：types（ActId）/ hooks / cn
+├── content/          # ★ 内容层（自包含）
+│   ├── types.ts      #   SiteContent 结构
+│   ├── data.ts       #   ★ 默认内容（Profile / Project / TechThought）
+│   ├── acts.ts       #   四幕元信息（ACTS）
+│   ├── defaults.ts   #   DEFAULT_CONTENT 组装
+│   └── store.tsx     #   ContentProvider / useContent
 ├── pages/            # Home / ProjectDetail / TechThoughts / Admin
 ├── components/       # GlobalNav / SciFiHeading
-├── journey/          # 四幕旅程（config / hooks / Journey / VerticalJourney / scene / ui）
+├── journey/          # 四幕旅程（config / Journey / VerticalJourney / scene / ui）
 └── three/            # 3D 舞台框架（详见 THREE.md）
 public/
 ├── covers/           # 作品封面
@@ -32,7 +37,7 @@ scripts/gen-content.mjs  # 重新生成默认 content.json
 
 ## 数据流（内容）
 
-1. 默认值：`src/data.ts`（`DEFAULT_CONTENT` 在 `src/content/defaults.ts` 组装）
+1. 默认值：`src/content/data.ts`（`DEFAULT_CONTENT` 在 `src/content/defaults.ts` 组装）
 2. 运行时：`ContentProvider`（`src/content/store.tsx`）fetch `/content.json`，与默认值**浅合并**（对象逐键、数组整体替换）
 3. 页面统一 `useContent()` 读取
 4. 编辑器 `/admin`：改草稿 → `PUT /api/content`（vite 中间件）写 `public/content.json`；静态环境降级为下载 JSON

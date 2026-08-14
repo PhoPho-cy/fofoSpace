@@ -27,9 +27,9 @@
 
 | 可替换项 | 位置 | 说明 |
 | --- | --- | --- |
-| 个人资料 / 简介 / 技能 / 联系方式 | `src/data.ts` → `PROFILE`；或 `/admin` | 编辑器可视化修改 |
-| 作品（标题/封面/简介/技术栈/详情） | `src/data.ts` → `MY_PROJECTS`；或 `/admin` | 封面支持图片/视频 URL |
-| 技术文章 | `src/data.ts` → `TECH_THOUGHTS`；或 `/admin` | 正文纯文本 |
+| 个人资料 / 简介 / 技能 / 联系方式 | `src/content/data.ts` → `PROFILE`；或 `/admin` | 编辑器可视化修改 |
+| 作品（标题/封面/简介/技术栈/详情） | `src/content/data.ts` → `MY_PROJECTS`；或 `/admin` | 封面支持图片/视频 URL |
+| 技术文章 | `src/content/data.ts` → `TECH_THOUGHTS`；或 `/admin` | 正文纯文本 |
 | 章节文字 | `/admin` 章节文字；默认在 `content.defaults` | 四幕 chapter/title/sub |
 | 界面文案 | `/admin` 界面文案 | 品牌名 / 首页提示 |
 | 3D 舞台模型（GLTF/GLB） | `/admin` → 3D 舞台 | 自动加载，失败回退占位 |
@@ -64,3 +64,4 @@ pnpm gen:content    # 从默认内容重新生成 public/content.json
 - 2026-08-14（同日跟进）：`public/content.json` 改为提交常驻（避免 404）；「恢复默认」写回默认值；新增 `scripts/gen-content.mjs` + `pnpm gen:content`。
 - 2026-08-15：文档架构优化 —— 拆分 `Notes/` 为 README（入口+约束）/ ARCHITECTURE / CONTENT / THREE / HANDOFF；根 README 精简为概览+链接；新增「每次回答前检查一次」约束；清理 3 处未使用变量；全路由无报错验证通过。
 - 2026-08-15：新增根目录 `AGENTS.md`（agent 自动读取的约束 + 检查清单 + 文档索引）；完成首次 git 提交（b0b736d）。
+- 2026-08-15：整体文件架构优化 —— 新增 `src/shared/`（types/hooks/cn）；内容层自包含（`src/content/acts.ts`、`src/content/data.ts`）；`content` 不再反向依赖 `journey`；删除根目录 `data.ts` / `utils.ts` / `journey/hooks.ts`；34 个文件全部可达、无死代码。

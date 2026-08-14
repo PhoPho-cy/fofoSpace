@@ -1,5 +1,5 @@
 ﻿import { COLORS, GROUND_Y } from '../config';
-import type { TechThought } from '../../data';
+import type { TechThought } from '../../content/data';
 
 /** 单个知识节点（可独立用于移动端） */
 export function DocNodeArt({

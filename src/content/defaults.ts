@@ -1,5 +1,5 @@
-import { PROFILE, MY_PROJECTS, TECH_THOUGHTS } from '../data';
-import { ACTS } from '../journey/config';
+import { PROFILE, MY_PROJECTS, TECH_THOUGHTS } from './data';
+import { ACTS } from './acts';
 import type { SiteContent } from './types';
 
 /** 默认内容：来自 src/data.ts（与代码保持一致的唯一默认源） */

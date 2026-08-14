@@ -33,7 +33,8 @@ pnpm gen:content    # 从默认内容重新生成 public/content.json
 
 ```
 src/
-├── content/   # 内容层（types / defaults / store）
+├── shared/    # 跨模块共享（types / hooks / cn）
+├── content/   # 内容层（types / data / acts / defaults / store）
 ├── pages/     # Home / ProjectDetail / TechThoughts / Admin
 ├── components/# GlobalNav / SciFiHeading
 ├── journey/   # 四幕旅程

@@ -4,7 +4,7 @@ import { AnimatePresence } from 'motion/react';
 import Journey from '../journey/Journey';
 import VerticalJourney from '../journey/VerticalJourney';
 import MemoryGate from '../journey/ui/MemoryGate';
-import { useMediaQuery } from '../journey/hooks';
+import { useMediaQuery } from '../shared/hooks';
 
 // three.js 通过懒加载按需进入（不会打进首屏主包）
 const ThreeStage = lazy(() => import('../three/ThreeStage'));

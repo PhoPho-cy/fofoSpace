@@ -1,5 +1,5 @@
-import type { Profile, Project, TechThought } from '../data';
-import type { ActId } from '../journey/config';
+import type { Profile, Project, TechThought } from './data';
+import type { ActId } from '../shared/types';
 
 /** 每幕可编辑的文字 */
 export interface ActCopy {
