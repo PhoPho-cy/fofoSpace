@@ -27,7 +27,7 @@ src/
 ├── pages/            # Home / ProjectDetail / TechThoughts / Admin
 ├── components/       # GlobalNav / SciFiHeading
 ├── journey/          # 四幕旅程（config / Journey / VerticalJourney / scene / ui）
-└── three/            # 3D 舞台框架（详见 THREE.md）
+└── three/            # GLSL 互动舞台（Canvas / shaders / game / HUD，详见 THREE.md）
 public/
 ├── covers/           # 作品封面
 └── content.json      # ★ 编辑器保存的内容（已提交，跨设备同步）
@@ -44,8 +44,10 @@ scripts/gen-content.mjs  # 重新生成默认 content.json
 
 ## 关键常量（唯一调节点）
 
-- `src/journey/config.ts`：四幕坐标（`NODE_X/Y`）、文字激活区间（`ACT_RANGES`）、角色/地面尺寸、能量线路径、调色板
-- `src/index.css`：`@theme` 色板与字体
+- `src/journey/config.ts`：旧二维旅程的四幕坐标、文字区间、能量线路径与调色板
+- `src/three/config.ts`：三维横版画质预算，包括 420 / 850 / 1400 草叶实例数
+- `src/three/game/GrassField.tsx` + `src/three/shaders/grass.*.glsl`：三维草高、XYZ 分布、风向、压草半径与根尖色阶
+- `src/index.css`：全站 UI 色板与字体
 
 ## 性能优化（全站）
 
@@ -54,5 +56,6 @@ scripts/gen-content.mjs  # 重新生成默认 content.json
 | 路由级分包 | 详情页 / 文档页 / 编辑器 / 3D 舞台均懒加载；主包 gzip ≈ 137KB |
 | three 懒加载 | 独立 chunk（≈975KB），打开 3D 舞台才下载 |
 | 能量线 rAF 暂停 | `document.hidden` 时跳过写入 |
+| 三维草场 GPU Instancing | 低/中/高 420/850/1400 草叶共用一次 draw call；顶点 Shader 处理风摆和压草 |
 | 图片懒加载 + 尺寸预留 | 首屏不阻塞 |
 | 深链定位 | `/?act=cover|about|work|docs` |

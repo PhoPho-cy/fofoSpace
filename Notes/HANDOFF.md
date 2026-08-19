@@ -17,10 +17,11 @@
 ## 当前状态快照
 
 - 技术栈：React 19 + TS + Vite 6 + Tailwind v4 + Motion + React Router + three（懒加载）
-- 四幕旅程：`src/journey/`（桌面横版探索 / 移动端纵向叙事）
+- 主体验：点击「进入记忆」后默认进入 Three.js 三维横版舞台；旧 `src/journey/` 保留为可关闭舞台后的二维备用层
+- 三维地表：暗青风格化草场，真实 XYZ 分布与深度遮挡；InstancedMesh + 顶点 Shader 风摆；角色实时压草
 - 内容层：`src/content/` + `public/content.json`（已提交）+ 编辑器 `/admin`
-- 3D 框架：`src/three/`
-- 性能：路由级分包、three 懒加载、rAF 后台暂停、dpr 限制
+- 3D/GLSL 框架：`src/three/`（Shader 背景 + 三维横版移动 + 草场 + 作品心核交互 + DOM HUD）
+- 性能：路由级分包、three 懒加载、质量自动降级、Shader 细节预算、dpr 限制
 - 已清理：旧 Neon 组件、`src/game/`、多余依赖
 
 ## 可替换项清单（白盒 / 占位 / 内容）
@@ -38,8 +39,9 @@
 | 三颗心核（SVG 白盒） | `src/journey/scene/HeartCores.tsx` | 可交互 |
 | 神经主干 + 知识节点（SVG 白盒） | `src/journey/scene/DocNodes.tsx` | 可交互 |
 | 探索者角色（SVG 白盒） | `src/journey/scene/Character.tsx` | 统一尺寸/地面高度 |
-| 视差层（山/柱/草/花瓣） | `src/journey/scene/ParallaxLayers.tsx` | 三层不同速度 |
-| 3D 占位场景 | `src/three/SceneContent.tsx` | Instancing 写法示例 |
+| 视差层（山/柱/花瓣） | `src/journey/scene/ParallaxLayers.tsx` | 三层不同速度 |
+| 三维风动草场 / 角色压草 | `src/three/game/GrassField.tsx` + `src/three/shaders/grass.*.glsl` | 420/850/1400 实例；真实 Z 深度自然遮挡角色、光脉和节点 |
+| GLSL 互动舞台 | `src/three/SceneContent.tsx` | Shader 背景 + 三维横版游戏世界；进入记忆后默认打开 |
 | 头像 | `PROFILE.avatar`（留空用占位剪影） | |
 
 ## 常用命令
@@ -68,3 +70,7 @@ pnpm gen:content    # 从默认内容重新生成 public/content.json
 - 2026-08-15：整体文件架构优化 —— 新增 `src/shared/`（types/hooks/cn）；内容层自包含（`src/content/acts.ts`、`src/content/data.ts`）；`content` 不再反向依赖 `journey`；删除根目录 `data.ts` / `utils.ts` / `journey/hooks.ts`；34 个文件全部可达、无死代码。
 - 2026-08-15：git 仓库管理 —— 新增 `.gitignore`（node_modules / dist / .env / .workbuddy）；解除 node_modules（5894）与 .workbuddy 的跟踪；删除陈旧 package-lock.json、vite.config.js；纳入 FOR_GEMINI.md；提交按模块拆分（feat / refactor / docs / chore），当前工作区干净、60 个跟踪文件。推送 origin 需网络（本机暂被阻断）。
 - 2026-08-15：确立分工约定 —— 本地管理（提交/检查/Notes 同步）由 Agent 负责，推送由用户执行（写入 AGENTS.md 与本文档）。
+- 2026-08-19：将 `src/three/` 从氛围占位场景升级为 GLSL 游戏式作品集框架：新增全屏记忆洞穴 Shader、uniform 管理、横版玩家与相机、键盘/触控输入、作品心核拾取、DOM HUD 与详情跳转；更新 `config.ts` 质量预算及 `Notes/THREE.md` / `Notes/ARCHITECTURE.md`。
+- 2026-08-19：主界面四幕地板升级为暗青手绘风动草地：`ParallaxLayers.tsx` 新增确定性草簇、从左向右阵风、草尖层次、随 `charX` 移动的压草痕迹及 `MobileGrass` 低密度版本；`SceneTrack.tsx` 接入角色坐标，`VerticalJourney.tsx` 接入移动端草地，`index.css` 新增草叶动画。
+- 2026-08-19：参考 Shadertoy `mtSSDd` 的分层草场观感，将主界面草地拆为远/中/近三层：远景浅、短、慢视差，中景保持世界坐标，近景高、暗、快视差并在角色和光脉前局部遮挡；压草移至前景层，移动端改为远近双层。涉及 `ParallaxLayers.tsx`、`SceneTrack.tsx`、`index.css`、`Notes/ARCHITECTURE.md`。
+- 2026-08-19（方向纠正）：确认目标是 Three.js 三维横版而非二维 SVG。撤回 `journey` 草地与 CSS 风动实现，恢复旧二维占位地面；新增 `src/three/game/GrassField.tsx`、`grass.vert.glsl`、`grass.frag.glsl`，以自定义收尖草叶 + InstancedMesh + 真实 XYZ 深度实现风摆、前后遮挡和角色压草；`Home.tsx` 改为进入记忆后默认打开三维横版舞台，`config.ts` 增加 420/850/1400 草叶质量预算。

@@ -57,7 +57,15 @@ export default function Home() {
       </Suspense>
 
       <AnimatePresence>
-        {!entered && <MemoryGate key="memory-gate" onEnter={() => setEntered(true)} />}
+        {!entered && (
+          <MemoryGate
+            key="memory-gate"
+            onEnter={() => {
+              setEntered(true);
+              setShow3D(true);
+            }}
+          />
+        )}
       </AnimatePresence>
     </main>
   );

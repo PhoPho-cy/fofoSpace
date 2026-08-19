@@ -138,7 +138,7 @@ export default function ParallaxLayers({ cameraX }: { cameraX: MotionValue<numbe
   );
 }
 
-/** 连续地面：四幕共用同一地面高度与质感 */
+/** 连续地面：旧二维旅程只保留低频占位，主体验使用 Three.js 3D 地表。 */
 export function Ground() {
   return (
     <svg
@@ -157,13 +157,11 @@ export function Ground() {
       </defs>
       <rect x="0" y="0" width="400" height="24" fill="url(#ground-fill)" />
       <line x1="0" y1="0.6" x2="400" y2="0.6" stroke={COLORS.cyanSoft} strokeWidth="0.5" opacity="0.55" />
-      {/* 地面微光（能量线落点） */}
-      {[36, 130, 205, 308].map((x, i) => (
-        <ellipse key={i} cx={x} cy="1.2" rx="9" ry="2.4" fill={COLORS.petal} opacity="0.1" className="animate-pulse-glow" />
+      {[36, 130, 205, 308].map((x) => (
+        <ellipse key={x} cx={x} cy="1.2" rx="9" ry="2.4" fill={COLORS.petal} opacity="0.1" className="animate-pulse-glow" />
       ))}
-      {/* 地面纹理 */}
-      {Array.from({ length: 60 }).map((_, i) => (
-        <ellipse key={i} cx={(i * 13.7) % 400} cy={4 + ((i * 17.3) % 12)} rx={1.1 + (i % 4) * 0.5} ry={0.5 + (i % 3) * 0.3} fill={COLORS.cyan} opacity="0.6" />
+      {Array.from({ length: 60 }).map((_, index) => (
+        <ellipse key={index} cx={(index * 13.7) % 400} cy={4 + ((index * 17.3) % 12)} rx={1.1 + (index % 4) * 0.5} ry={0.5 + (index % 3) * 0.3} fill={COLORS.cyan} opacity="0.6" />
       ))}
     </svg>
   );
